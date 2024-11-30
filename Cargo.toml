@@ -6,7 +6,7 @@ authors = ["Maarten Ymaenik <reanoreofficial@gmail.com>", "Renato B. Lugto III <
 description = "A Rust library to parse .vxd files containing key-value pairs used in games or configurations."
 license = "BSD-2-Clause"
 repository = "https://github.com/Reanore/vxde"
-homepage = "https://github.com/Reanore/vxde"
+homepage = "https://reanore.github.io"
 keywords = ["vxd", "file parser", "key-value pairs", "secure", "secure file format", "file format"]
 readme = "README.md"
 
