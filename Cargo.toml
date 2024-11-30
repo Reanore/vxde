@@ -1,0 +1,26 @@
+[package]
+name = "vxde"
+version = "1.0.0"
+edition = "2021"
+authors = ["Maarten Ymaenik <reanoreofficial@gmail.com>", "Renato B. Lugto III <maymae-nikki@proton.me>"]
+description = "A Rust library to parse .vxd files containing key-value pairs used in games or configurations."
+license = "BSD-2-Clause"
+repository = "https://github.com/Reanore/vxde"
+homepage = "https://github.com/Reanore/vxde"
+keywords = ["vxd", "file parser", "key-value pairs", "secure", "secure file format", "file format"]
+readme = "README.md"
+
+[dependencies]
+# No external dependencies for now.
+
+[dev-dependencies]
+# No dev dependencies specified.
+
+[profile.dev]
+# Enable debugging symbols in dev builds
+debug = true
+
+[profile.release]
+# Optimize for performance in release builds
+opt-level = 3
+
