@@ -1,13 +1,14 @@
 [package]
 name = "vxde"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2021"
 authors = ["Maarten Ymaenik <reanoreofficial@gmail.com>", "Renato B. Lugto III <maymae-nikki@proton.me>"]
 description = "A Rust library to parse .vxd files containing key-value pairs used in games or configurations."
 license = "BSD-2-Clause"
 repository = "https://github.com/Reanore/vxde"
 homepage = "https://reanore.github.io"
-keywords = ["vxd", "file-parser", "key-value-pairs", "secure", "file-format"]
+keywords = ["vxd", "parser", "async", "secure", "database"]
+categories = ["development-tools", "authentication", "encoding", "parsing", "games"]
 readme = "README.md"
 
 [dependencies]
