@@ -210,7 +210,3 @@ USER_PASS;
 ```
 
 In the last example, the `USER_PASS` key has no value, and the parser will ignore it (i.e., no entry for `USER_PASS` will be in the `HashMap`).
-
----
-
-That's everything! This README and documentation cover the usage, features, installation, and testing of the `vxde` crate with the BSD 2-Clause License included. Let me know if you'd like to add or modify anything!
