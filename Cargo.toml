@@ -7,7 +7,7 @@ description = "A Rust library to parse .vxd files containing key-value pairs use
 license = "BSD-2-Clause"
 repository = "https://github.com/Reanore/vxde"
 homepage = "https://reanore.github.io"
-keywords = ["vxd", "file parser", "key-value pairs", "secure", "file format"]
+keywords = ["vxd", "file-parser", "key-value-pairs", "secure", "file-format"]
 readme = "README.md"
 
 [dependencies]
