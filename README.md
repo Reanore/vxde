@@ -4,13 +4,27 @@
 
 This crate allows you to easily parse `.vxd` files into a `HashMap` of variables, supporting a wide range of input formats.
 
-## Features
+## Series 2025 Features
 
-- Parse `.vxd` files into a `HashMap` of key-value pairs.
-- Handles whitespace, newlines, and semicolons as delimiters.
-- Handles quoted values (e.g., `"value"`) and non-quoted values (e.g., `value`).
-- Handles edge cases like empty files and invalid formats.
-- Flexible input formatting for user convenience.
+- [x] Parse `.vxd` files into a `HashMap` of key-value pairs.
+- [ ] Custom `vxde` hashing algorithm for encoding `.vxd` files.
+- [ ] Custom `vxde` decoder for decoding hashed `.vxd` files back to plaintext.
+- [x] Handle whitespace, newlines, and semicolons as delimiters.
+- [x] Handle quoted values (e.g., `"value"`) and non-quoted values (e.g., `value`).
+- [x] Handle edge cases like empty files and invalid formats.
+- [ ] Support both plaintext and hashed `.vxd` files for parsing.
+- [ ] Encrypt and Decrypt `.vxd` Files.
+- [ ] Customizable hashing algorithm options (e.g., salt, iteration count).
+- [ ] Support for nested key-value structures (like JSON).
+- [ ] Improved error handling with detailed feedback for parsing.
+- [ ] File validation to ensure `.vxd` structure is correct before parsing.
+- [ ] Logging and debugging tools for better traceability.
+- [ ] File format versioning support for future-proofing.
+- [ ] Batch processing support for handling multiple `.vxd` files.
+- [ ] Command-line tool for parsing, encoding, and decoding `.vxd` files.
+- [ ] Performance optimizations for large `.vxd` files.
+- [ ] Cross-platform support (Windows, macOS, Linux).
+- [ ] Unit and integration tests to ensure all features work as expected.
 
 ## Installation
 
