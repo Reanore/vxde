@@ -32,7 +32,7 @@ To use `vxde` in your Rust project, do `cargo add vxde` or add it as a dependenc
 
 ```toml
 [dependencies]
-vxde = "1.0.1"
+vxde = "1.0.2"
 ```
 
 ## Usage
