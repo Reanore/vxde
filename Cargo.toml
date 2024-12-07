@@ -12,6 +12,7 @@ categories = ["development-tools", "authentication", "encoding", "parsing", "gam
 readme = "README.md"
 
 [dependencies]
+regex = "1.11.1"
 # No external dependencies for now.
 
 [dev-dependencies]
