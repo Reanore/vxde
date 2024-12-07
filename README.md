@@ -1,53 +1,119 @@
 # vxde - VXD File Parser for Rust
 
-`vxde` is a Rust library that provides a parser for `.vxd` files. These files contain key-value pairs used in games or configurations, where the values can be in plaintext or serialized. The parser handles files with flexible formatting, such as varying spaces, newlines, and semicolons as delimiters.
+`vxde` is a Rust library that provides a parser for `.vxd` files. These files contain key-value pairs used in games or configurations, where the values can be in plaintext or hashed. The parser handles files with flexible formatting, such as varying spaces, newlines, and semicolons as delimiters.
 
 This crate allows you to easily parse `.vxd` files into a `HashMap` of variables, supporting a wide range of input formats.
 
 ## Series 2025 Features
 
 - [x] Parse `.vxd` files into a `HashMap` of key-value pairs.
-- [ ] Custom `vxde` serialization algorithm for encoding `.vxd` files.
-- [ ] Custom `vxde` decoder for decoding serialized `.vxd` files back to plaintext.
+- [ ] Custom `vxde` hashing algorithm for encoding `.vxd` files.
+- [ ] Custom `vxde` decoder for decoding hashed `.vxd` files back to plaintext.
 - [x] Handle whitespace, newlines, and semicolons as delimiters.
 - [x] Handle quoted values (e.g., `"value"`) and non-quoted values (e.g., `value`).
 - [x] Handle edge cases like empty files and invalid formats.
-- [ ] Support both plaintext and serialized `.vxd` files for parsing.
-- [ ] Customizable serialization algorithm options.
+- [ ] Support both plaintext and hashed `.vxd` files for parsing.
+- [ ] Encrypt and Decrypt `.vxd` Files.
+- [ ] Customizable hashing algorithm options (e.g., salt, iteration count).
 - [ ] Support for nested key-value structures (like JSON).
-- [x] Improved error handling with detailed feedback for parsing.
+- [ ] Improved error handling with detailed feedback for parsing.
+- [ ] File validation to ensure `.vxd` structure is correct before parsing.
 - [ ] Logging and debugging tools for better traceability.
 - [ ] File format versioning support for future-proofing.
 - [ ] Batch processing support for handling multiple `.vxd` files.
 - [ ] Command-line tool for parsing, encoding, and decoding `.vxd` files.
 - [ ] Performance optimizations for large `.vxd` files.
 - [ ] Cross-platform support (Windows, macOS, Linux).
-- [x] Integration tests to ensure all features work as expected.
-
-### This version, Version 2.0.0-beta.0 Series 2025, will have:
-- A rework of the internal mechanisms of the parser
-- A clearer syntax for the `.vxd` file, `NAME : TYPE = VALUE;`
-
-## ReanoMeter Rating: C - Extensive changes 
-| **Letter** | **Level**            |
-|------------|----------------------|
-| **S**      | 5 - Invisible Update |
-| **A**      | 4 - Minor Adjustments|
-| **B**      | 3 - Moderate Effort  |
-| **C**      | 2 - Extensive Changes|
-| **D**      | 1 - Complete Overhaul|
+- [ ] Unit and integration tests to ensure all features work as expected.
 
 ## Installation
 
-To use `vxde` in your Rust project, run the command:
-
-`cargo add vxde`
-
-or add it as a dependency in your `Cargo.toml`:
+To use `vxde` in your Rust project, do `cargo add vxde` or add it as a dependency in your `Cargo.toml`:
 
 ```toml
 [dependencies]
-vxde = "2.0.0-beta.0"
+vxde = "1.0.2"
+```
+
+## Usage
+
+Here's a basic example of how to use the `VxdeParser` to read and parse a `.vxd` file:
+
+### Example Code
+
+```rust
+use vxde::VxdeParser;
+
+fn main() {
+    // Read and parse a .vxd file
+    let file_path = "path_to_your_file.vxd";
+    match VxdeParser::from_file(file_path) {
+        Ok(vxde) => {
+            // Access the parsed variables
+            let variables = vxde.get_variables();
+            
+            // Print each key-value pair
+            for (key, value) in variables {
+                println!("{} = {}", key, value);
+            }
+        }
+        Err(e) => {
+            eprintln!("Failed to parse file: {}", e);
+        }
+    }
+}
+```
+
+### Example `.vxd` File Content
+
+```plaintext
+USER_ISLOGGEDIN=true;USER_NAME="reanore";USER_PASS="1234";
+```
+
+This will be parsed into a `HashMap` where the keys are `USER_ISLOGGEDIN`, `USER_NAME`, and `USER_PASS`, and the corresponding values will be `true`, `"reanore"`, and `"1234"`.
+
+## API Documentation
+
+### `VxdeParser`
+
+The core struct of the library that handles parsing the `.vxd` file.
+
+#### `VxdeParser::from_file(file_path: &str) -> Result<VxdeParser, io::Error>`
+
+Reads a `.vxd` file from the given path and parses its contents.
+
+##### Arguments:
+
+- `file_path`: A string slice representing the path to the `.vxd` file.
+
+##### Returns:
+
+- `Ok(VxdeParser)` if the file was parsed successfully.
+- `Err(io::Error)` if there was an error opening or reading the file.
+
+#### `VxdeParser::get_variables(&self) -> &HashMap<String, String>`
+
+Returns a reference to the `HashMap` containing the parsed variables.
+
+##### Returns:
+
+- A reference to a `HashMap<String, String>`, where the keys are the variable names and the values are the corresponding values from the `.vxd` file.
+
+### Example Usage
+
+```rust
+use vxde::VxdeParser;
+
+fn main() {
+    let file_path = "config.vxd";
+    let vxde = VxdeParser::from_file(file_path).unwrap();
+    let variables = vxde.get_variables();
+
+    println!("Parsed variables:");
+    for (key, value) in variables {
+        println!("{} = {}", key, value);
+    }
+}
 ```
 
 ## Tests
@@ -88,14 +154,73 @@ If you'd like to contribute to `vxde`, feel free to open an issue or submit a pu
 ```
 vxde/
 ├── src/
-│   └── lib.rs  # Main library file containing the parser
-├── tests/
-│   ├── test_name.rs  # Tests for the VxdeParser
-│   └── assets/
-│       ├── test_data.vxd # assets for unit tests in the src files
-│       ├── test_data2.vxd
-│       └── test_name.rs/ # assets for the specific test files
-│           └── func_name.vxd # assets for the specific function in named test file
+│   ├── lib.rs  # Main library file containing the parser
+│   └── tests/
+│       └── mod.rs  # Tests for the VxdeParser
 ├── Cargo.toml  # The project's metadata and dependencies
 └── README.md   # This README file
 ```
+
+---
+
+## Full Documentation of Core Methods
+
+### `VxdeParser::from_file`
+
+```rust
+pub fn from_file(file_path: &str) -> io::Result<Self>
+```
+
+This function opens the given file and parses its contents. The file should follow the `.vxd` format, where each line can contain one or more key-value pairs, with keys and values separated by an equal sign (`=`) and pairs separated by semicolons (`;`).
+
+- Whitespace, tabs, and newlines are ignored.
+- Keys and values are parsed as strings. If a value is enclosed in double quotes (`"`), the quotes are removed from the value.
+- Keys and values are trimmed of leading and trailing whitespace.
+
+### `VxdeParser::get_variables`
+
+```rust
+pub fn get_variables(&self) -> &HashMap<String, String>
+```
+
+This function returns the `HashMap` that holds the parsed key-value pairs from the `.vxd` file. You can use this method to access the parsed variables.
+
+## Example `.vxd` File Formats
+
+The following are valid `.vxd` file formats:
+
+### 1. Single Line, Clean Format
+
+```plaintext
+USER_ISLOGGEDIN=true;USER_NAME="reanore";USER_PASS="1234";
+```
+
+### 2. Spaced Out Format
+
+```plaintext
+USER_ISLOGGEDIN = true;
+USER_NAME = "reanore";
+USER_PASS = "1234";
+```
+
+### 3. Newlines Between Pairs
+
+```plaintext
+USER_ISLOGGEDIN=true;
+
+USER_NAME="reanore";
+
+USER_PASS="1234";
+```
+
+### 4. Mixed Spacing, Newlines, and Missing Values
+
+```plaintext
+USER_ISLOGGEDIN = true;
+
+USER_NAME="reanore";
+
+USER_PASS;
+```
+
+In the last example, the `USER_PASS` key has no value, and the parser will ignore it (i.e., no entry for `USER_PASS` will be in the `HashMap`).
