@@ -1,6 +1,6 @@
 [package]
 name = "vxde"
-version = "2.0.0-beta.0"
+version = "1.0.2"
 edition = "2021"
 authors = ["Maarten Ymaenik <reanoreofficial@gmail.com>", "Renato B. Lugto III <maymae-nikki@proton.me>"]
 description = "A Rust library to parse .vxd files containing key-value pairs used in games or configurations."
@@ -12,7 +12,6 @@ categories = ["development-tools", "authentication", "encoding", "parsing", "gam
 readme = "README.md"
 
 [dependencies]
-regex = "1.11.1"
 # No external dependencies for now.
 
 [dev-dependencies]
