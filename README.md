@@ -29,14 +29,14 @@ This crate allows you to easily parse `.vxd` files into a `HashMap` of variables
 - A rework of the internal mechanisms of the parser
 - A clearer syntax for the `.vxd` file, `NAME : TYPE = VALUE;`
 
-## ReanoMeter Rating: C - Extensive changes
+## ReanoMeter Rating: C - Extensive changes 
 | **Letter** | **Level**            |
 |------------|----------------------|
-| - [] **S** | 5 - Invisible Update |
-| - [] **A** | 4 - Minor Adjustments|
-| - [] **B** | 3 - Moderate Effort  |
-| - [x] **C**| 2 - Extensive Changes|
-| - [] **D** | 1 - Complete Overhaul|
+| **S**      | 5 - Invisible Update |
+| **A**      | 4 - Minor Adjustments|
+| **B**      | 3 - Moderate Effort  |
+| **C**      | 2 - Extensive Changes|
+| **D**      | 1 - Complete Overhaul|
 
 ## Installation
 
