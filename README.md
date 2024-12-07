@@ -15,8 +15,7 @@ This crate allows you to easily parse `.vxd` files into a `HashMap` of variables
 - [ ] Support both plaintext and serialized `.vxd` files for parsing.
 - [ ] Customizable serialization algorithm options.
 - [ ] Support for nested key-value structures (like JSON).
-- [ ] Improved error handling with detailed feedback for parsing.
-- [ ] File validation to ensure `.vxd` structure is correct before parsing.
+- [x] Improved error handling with detailed feedback for parsing.
 - [ ] Logging and debugging tools for better traceability.
 - [ ] File format versioning support for future-proofing.
 - [ ] Batch processing support for handling multiple `.vxd` files.
@@ -25,7 +24,7 @@ This crate allows you to easily parse `.vxd` files into a `HashMap` of variables
 - [ ] Cross-platform support (Windows, macOS, Linux).
 - [x] Integration tests to ensure all features work as expected.
 
-### This version, Version 2.0.0 Series 2025, will have:
+### This version, Version 2.0.0-beta.0 Series 2025, will have:
 - A rework of the internal mechanisms of the parser
 - A clearer syntax for the `.vxd` file, `NAME : TYPE = VALUE;`
 
@@ -48,7 +47,7 @@ or add it as a dependency in your `Cargo.toml`:
 
 ```toml
 [dependencies]
-vxde = "2.0.0"
+vxde = "2.0.0-beta.0"
 ```
 
 ## Tests
