@@ -1,4 +1,4 @@
-USER_PASS: string = "dhhdhdhd";
+USER_PASS: string = dhhdhdhd;
 id_lowercase_name: i32 = 323;
 NEXT_VAR_NOLINEBREAK: string = "hello";
 EMPTY_VAR_WILL_BE_IGNORED: null;

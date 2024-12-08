@@ -24,11 +24,13 @@ This crate allows you to easily parse `.vxd` files into a `HashMap` of variables
 - [ ] Cross-platform support (Windows, macOS, Linux).
 - [x] Integration tests to ensure all features work as expected.
 
-### This version, Version 2.0.0-beta.0 Series 2025, will have:
-- A rework of the internal mechanisms of the parser
-- A clearer syntax for the `.vxd` file, `NAME : TYPE = VALUE;`
+### This version, Version 2.0.0 of Series 2025, will have:
+- Custom `vxde` serialization algorithm for encoding `.vxd` files.
+- Custom `vxde` decoder for decoding serialized `.vxd` files back to plaintext.
+- Customizable serialization algorithm options.
+- Integration tests to ensure all features work as expected.
 
-## ReanoMeter Rating: C - Extensive changes 
+## ReanoMeter Rating: D - Complete Overhaul
 | **Letter** | **Level**            |
 |------------|----------------------|
 | **S**      | 5 - Invisible Update |
@@ -47,7 +49,7 @@ or add it as a dependency in your `Cargo.toml`:
 
 ```toml
 [dependencies]
-vxde = "2.0.0-beta.0"
+vxde = "2.0.0"
 ```
 
 ## Tests

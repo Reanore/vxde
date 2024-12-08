@@ -1,5 +1,6 @@
-USER_ISLOGGEDIN=true;
+USER_ISLOGGEDIN: Bool=true;
 
-USER_NAME="reanore";
-
-USER_PASS="1234";
+USER_PARR: String=
+reanore
+flkkllkkll
+;
