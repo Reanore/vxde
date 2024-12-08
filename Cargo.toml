@@ -1,6 +1,6 @@
 [package]
 name = "vxde"
-version = "2.0.0-beta.0"
+version = "2.0.0-beta.1"
 edition = "2021"
 authors = ["Maarten Ymaenik <reanoreofficial@gmail.com>", "Renato B. Lugto III <maymae-nikki@proton.me>"]
 description = "A Rust library to parse .vxd files containing key-value pairs used in games or configurations."
